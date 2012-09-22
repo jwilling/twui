@@ -22,17 +22,17 @@ typedef enum {
 } TUITableViewStyle;
 
 typedef enum {
-	TUITableViewScrollPositionNone,        
-	TUITableViewScrollPositionTop,    
-	TUITableViewScrollPositionMiddle,   
+	TUITableViewScrollPositionNone,
+	TUITableViewScrollPositionTop,
+	TUITableViewScrollPositionMiddle,
 	TUITableViewScrollPositionBottom,
 	TUITableViewScrollPositionToVisible, // currently the only supported arg
 } TUITableViewScrollPosition;
 
 typedef enum {
-  TUITableViewInsertionMethodBeforeIndex  = NSOrderedAscending,
-  TUITableViewInsertionMethodAtIndex      = NSOrderedSame,
-  TUITableViewInsertionMethodAfterIndex   = NSOrderedDescending
+    TUITableViewInsertionMethodBeforeIndex  = NSOrderedAscending,
+    TUITableViewInsertionMethodAtIndex      = NSOrderedSame,
+    TUITableViewInsertionMethodAfterIndex   = NSOrderedDescending
 } TUITableViewInsertionMethod;
 
 @class TUITableViewCell;
@@ -86,14 +86,14 @@ typedef enum {
 	CGFloat                       _relativeOffsetForReload;
 	
 	// drag-to-reorder state
-  TUITableViewCell            * _dragToReorderCell;
-  CGPoint                       _currentDragToReorderLocation;
-  CGPoint                       _currentDragToReorderMouseOffset;
-  NSIndexPath            * _currentDragToReorderIndexPath;
-  TUITableViewInsertionMethod   _currentDragToReorderInsertionMethod;
-  NSIndexPath            * _previousDragToReorderIndexPath;
-  TUITableViewInsertionMethod   _previousDragToReorderInsertionMethod;
-  
+    TUITableViewCell            * _dragToReorderCell;
+    CGPoint                       _currentDragToReorderLocation;
+    CGPoint                       _currentDragToReorderMouseOffset;
+    NSIndexPath            * _currentDragToReorderIndexPath;
+    TUITableViewInsertionMethod   _currentDragToReorderInsertionMethod;
+    NSIndexPath            * _previousDragToReorderIndexPath;
+    TUITableViewInsertionMethod   _previousDragToReorderInsertionMethod;
+    
 	struct {
 		unsigned int animateSelectionChanges:1;
 		unsigned int forceSaveScrollPosition:1;
@@ -124,6 +124,7 @@ typedef enum {
 
 // Forces a re-calculation and re-layout of the table. This is most useful for animating the relayout. It is potentially _more_ expensive than -reloadData since it has to allow for animating.
 - (void)reloadLayout;
+- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
